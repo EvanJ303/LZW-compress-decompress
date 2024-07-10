@@ -1,0 +1,40 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    gap: 5px;
+    background-color: #2196F3;
+    padding: 20.0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 100px;
+    margin-left: 100px;
+    height: 155px;
+  }
+  
+  .grid-container > div {
+    background-color: rgb(255, 64, 255, 0.8);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px; 
+    padding: 5px;
+    margin-bottom: 25px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .input_bb {
+    text-align: center;
+  }
+  
+  .runbutton:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .runbutton {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #04AA6D;
+  }
