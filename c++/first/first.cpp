@@ -3,8 +3,9 @@
 using namespace std;
 
 int main(){
-    std::vector<std::vector<std::string>> jobs;
-    std::cout << "creating data" << std::endl;
+    for(int i=0;i<256;++i){
+        cout << char(i) << endl;
+    }
 
     return 0;
 }
