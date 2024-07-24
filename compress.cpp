@@ -5,8 +5,6 @@
 #include <vector>
 using namespace std;
 
-//copy paste (will be deleted)
-
 vector<int> encode(){
     std::map<string,int> encode_or_decode;
     for(int i=0;i<256;++i){
