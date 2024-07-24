@@ -13,8 +13,6 @@ vector<int> encode(){
     }
     std::ifstream in("precompress.txt");
     char c;
-    int table_count=0;
-    std::string str_table_count=string(1,char(table_count));
     std::string current_str;
     std::string next_str;
     std::vector<int> result;
