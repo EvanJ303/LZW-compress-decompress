@@ -5,29 +5,15 @@
 #include <vector>
 using namespace std;
 
-//copy paste (will be deleted)
-
-
-
-void file_selection(){
-    std::string pre_sel;
-    std::string res_sel;
-    cout << "select file to compress" << endl;
-    cin >> pre_sel;
-    cout << "select file to output results to" << endl;
-    cin >> res_sel;
-}
+std::map<string,int> encode_or_decode;
 
 vector<int> encode(){
-    std::map<string,int> encode_or_decode;
     for(int i=0;i<256;++i){
         encode_or_decode[string(1,char(i))]=i;
         std::cout << encode_or_decode[string(1,char(i))] << endl;
     }
-    std::ifstream in("pre_sel");
+    std::ifstream in("precompress.txt");
     char c;
-    int table_count=0;
-    std::string str_table_count=string(1,char(table_count));
     std::string current_str;
     std::string next_str;
     std::vector<int> result;
@@ -55,10 +41,13 @@ vector<int> encode(){
 }
 
 int main(){
-    file_selection();
     std::vector<int> encode_result=encode();
-    ofstream out("res_sel");
+    ofstream out("aftercompress.txt");
     if(out.is_open()){
+        out << encode_or_decode.size() << endl;
+        for(auto values:encode_or_decode){
+            out << values.first << " " << values.second << endl;
+        }
         for(int code:encode_result){
             out << code << " ";
         }
