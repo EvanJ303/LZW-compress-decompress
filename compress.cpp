@@ -5,13 +5,16 @@
 #include <vector>
 using namespace std;
 
+std::map<string,int> encode_or_decode;
+std::string input_path;
+std::string output_path;
+
 vector<int> encode(){
-    std::map<string,int> encode_or_decode;
     for(int i=0;i<256;++i){
         encode_or_decode[string(1,char(i))]=i;
-        std::cout << encode_or_decode[string(1,char(i))] << endl;
+        std::cout << "init map val " << encode_or_decode[string(1,char(i))] << endl;
     }
-    std::ifstream in("precompress.txt");
+    std::ifstream in(input_path);
     char c;
     std::string current_str;
     std::string next_str;
@@ -39,10 +42,24 @@ vector<int> encode(){
     return result;
 }
 
+void take_inputs(){
+    std::cout << "INPUT PATH OF FILE TO BE COMPRESSED" << endl;
+    std::cin >> input_path;
+    std::cout << "INPUT FILE TO WRITE COMPRESSED DATA TO" << endl;
+    std::cin >> output_path;
+}
+
 int main(){
+    take_inputs();
     std::vector<int> encode_result=encode();
-    ofstream out("aftercompress.txt");
+    std::ofstream out(output_path);
     if(out.is_open()){
+        out << encode_or_decode.size()-256 << endl;
+        for(auto values:encode_or_decode){
+            if(values.second>255){
+                out << values.first << " " << values.second << endl;
+            }
+        }
         for(int code:encode_result){
             out << code << " ";
         }
