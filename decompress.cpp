@@ -5,19 +5,19 @@
 #include <vector>
 using namespace std;
 
-std::map <int,string> interpreted_map;
-std::vector <string> decompressed_dat;
-std::string input_path;
-std::string output_path;
+map <int,string> interpreted_map;
+vector <string> decompressed_dat;
+string input_path;
+string output_path;
 
 void prime_dictionary(){
     for(int i=0;i<256;++i){
         interpreted_map[i]=string(1,char(i));
-        std::cout << interpreted_map[i] << endl;
+        cout << interpreted_map[i] << endl;
     }
     ifstream in(input_path);
     int strmap_len;
-    std::string s_val;
+    string s_val;
     int s_key;
     in >> strmap_len;
     for(int i=0;i<strmap_len;i++){
@@ -31,7 +31,7 @@ void prime_dictionary(){
 void read_to_vector(){
     ifstream in(input_path);
     int strmap_len;
-    std::string s_val;
+    string s_val;
     int s_key;
     in >> strmap_len;
     for(int i=0;i<strmap_len;i++){
@@ -54,10 +54,10 @@ void output_resu(){
 }
 
 void take_inputs(){
-    std::cout << "INPUT PATH OF FILE TO BE COMPRESSED" << endl;
-    std::cin >> input_path;
-    std::cout << "INPUT FILE TO WRITE COMPRESSED DATA TO" << endl;
-    std::cin >> output_path;
+    cout << "INPUT PATH OF FILE TO BE COMPRESSED" << endl;
+    cin >> input_path;
+    cout << "INPUT FILE TO WRITE COMPRESSED DATA TO" << endl;
+    cin >> output_path;
 }
 
 int main(){
