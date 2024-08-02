@@ -54,9 +54,9 @@ void output_resu(){
 }
 
 void take_inputs(){
-    cout << "INPUT PATH OF FILE TO BE COMPRESSED" << endl;
+    cout << "INPUT PATH OF FILE TO BE DECOMPRESSED" << endl;
     cin >> input_path;
-    cout << "INPUT FILE TO WRITE COMPRESSED DATA TO" << endl;
+    cout << "INPUT FILE TO WRITE DECOMPRESSED DATA TO" << endl;
     cin >> output_path;
 }
 
