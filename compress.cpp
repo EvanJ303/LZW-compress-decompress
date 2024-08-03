@@ -1,3 +1,5 @@
+//LIBS
+
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -5,14 +7,21 @@
 #include <vector>
 using namespace std;
 
+//PUBLIC VAR DECLARATIONS
+
 map<string,int> encode_or_decode;
 string input_path;
 string output_path;
 
+//ENCODE FUNCTION   
+
 vector<int> encode(){
     for(int i=0;i<256;++i){
         encode_or_decode[string(1,char(i))]=i;
-        cout << "init map val " << encode_or_decode[string(1,char(i))] << endl;
+
+        //LOAD PROGRESS
+
+        cout << "init map val " << encode_or_decode[string(1,char(i))] << "out of 256" <<  endl;
     }
     ifstream in(input_path);
     char c;
@@ -32,6 +41,9 @@ vector<int> encode(){
                 current_str=string(1,c);
             }
         }
+
+        //MUST REMEMBER TO PUSH BACK FINAL STR
+
         if(!current_str.empty()){
             result.push_back(encode_or_decode[current_str]);
         }
@@ -42,12 +54,16 @@ vector<int> encode(){
     return result;
 }
 
+//TAKE INPUTS FUNCTION
+
 void take_inputs(){
     cout << "INPUT PATH OF FILE TO BE COMPRESSED" << endl;
     cin >> input_path;
     cout << "INPUT FILE TO WRITE COMPRESSED DATA TO" << endl;
     cin >> output_path;
 }
+
+//INT MAIN (READING AND WRITING)
 
 int main(){
     take_inputs();
