@@ -1,3 +1,5 @@
+//LIBS
+
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -5,10 +7,14 @@
 #include <vector>
 using namespace std;
 
+//PUBLIC VAR DECLARATIONS
+
 map <int,string> interpreted_map;
 vector <string> decompressed_dat;
 string input_path;
 string output_path;
+
+//INIT DICTIONARY FUNCTION
 
 void prime_dictionary(){
     for(int i=0;i<256;++i){
@@ -28,6 +34,8 @@ void prime_dictionary(){
     in.close();
 }
 
+//READ FUNCTION
+
 void read_to_vector(){
     ifstream in(input_path);
     int strmap_len;
@@ -45,6 +53,8 @@ void read_to_vector(){
     in.close();
 }
 
+//WRITE FUNCTION
+
 void output_resu(){
     ofstream out(output_path);
     for(string code:decompressed_dat){
@@ -53,12 +63,16 @@ void output_resu(){
     out.close();
 }
 
+//TAKE INPUTS FUNCTION
+
 void take_inputs(){
     cout << "INPUT PATH OF FILE TO BE DECOMPRESSED" << endl;
     cin >> input_path;
     cout << "INPUT FILE TO WRITE DECOMPRESSED DATA TO" << endl;
     cin >> output_path;
 }
+
+//INT MAIN
 
 int main(){
     take_inputs();
