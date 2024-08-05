@@ -21,7 +21,7 @@ vector<int> encode(){
 
         //LOAD PROGRESS
 
-        cout << "init map val " << encode_or_decode[string(1,char(i))] << "out of 256" <<  endl;
+        cout << "init map val " << encode_or_decode[string(1,char(i))] << " out of 256" <<  endl;
     }
     ifstream in(input_path);
     char c;
